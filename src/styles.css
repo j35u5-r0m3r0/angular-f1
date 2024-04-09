@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+  background-color: black;
+  color: white;
+}
+
+footer {
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+}
+
+h2.section-title {
+  color: red;
+}
+
+h4.welcome-subtitle {
+    color: darkgrey;
+    font-weight: 400;
+    font-size: 100%;
+}
+
+/* tabs */
+.nav {
+  border-bottom: 1px solid #f00;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: #f00;
+  background-color: transparent;
+  border-color: transparent transparent #f00;
+  border-bottom: 4px solid  #f00 !important;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  color: #fff;
+  font-size: 15px;
+}
