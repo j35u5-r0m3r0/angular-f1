@@ -13,10 +13,10 @@
     <!-- Tab panes -->
     <div class="tab-content">
         <div class="tab-pane active" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
-            <app-schelude-upcoming-list></app-schelude-upcoming-list>
+            <app-schelude-upcoming-list [races]="upcomingRaces" [countries]="countriesIso"></app-schelude-upcoming-list>
         </div>
         <div class="tab-pane" id="past" role="tabpanel" aria-labelledby="past-tab">
-            <app-schelude-past-list></app-schelude-past-list>
+            <app-schelude-past-list [races]="pastRaces" [countries]="countriesIso"></app-schelude-past-list>
         </div>
     </div>
 </div>

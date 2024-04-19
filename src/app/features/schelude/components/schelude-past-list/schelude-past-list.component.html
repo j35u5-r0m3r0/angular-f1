@@ -1,1 +1,14 @@
-<p>schelude-past-list works!</p>
+<table class="table table-dark table-hover table-sm">
+    <tbody>
+        <tr *ngFor="let race of races">
+            <th scope="row" class="align-middle text-center">
+                <img src= "https://flagsapi.com/{{countries.get(race.Circuit.Location.country)}}/shiny/64.png" alt="{{race.Circuit.Location.country}} flag">
+            </th>
+            <td>
+                <p class="my-0 text-danger">Round {{race.round}}</p>
+                <p class="my-0 text-white"><strong>{{race.Circuit.Location.country}}</strong></p>
+                <p class="my-0 text-secondary">{{race.Circuit.circuitName}}</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
