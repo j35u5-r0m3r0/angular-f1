@@ -1,4 +1,16 @@
 <div class="container px-lg-5">
     <h2 class="section-title">Team</h2>
-
+    <table class="table table-dark table-hover table-sm">
+        <tbody>
+            <tr *ngFor="let team of teams" (click)="openConstructor(team.Constructor.constructorId)">
+                <th scope="row" class="align-middle text-center">{{team.position}}</th>
+                <td class="colour-team" [class]="team.Constructor.constructorId"></td>
+                <td>
+                    <p class="my-0 text-white">{{team.Constructor.name}}</p>
+                    <p class="my-0 text-secondary">{{team.Constructor.nationality}}</p>
+                </td>
+                <td class="align-middle">{{team.points}} pts</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
