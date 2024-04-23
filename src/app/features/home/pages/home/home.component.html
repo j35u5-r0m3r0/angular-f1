@@ -5,7 +5,9 @@
             <h2 class="section-title">Welcome to F1 Files</h2>
         </div>
         <div class="col-2">
-            <h2><a href="#"><i class="bi bi-info-circle"></i></a></h2>
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#infoModal">
+                <i class="bi bi-info-circle"></i>
+            </button>
         </div>    
     </div>
 
@@ -13,8 +15,25 @@
     <app-latests-results></app-latests-results>
     <h3>Next Races</h3>
     <app-next-races></app-next-races>
-    <h3>Driver Stadings</h3>
+    <h3>Driver Standings</h3>
     <app-driver-stadings></app-driver-stadings>
-    <h3>Team Stadings</h3>
+    <h3>Team Standings</h3>
     <app-team-stadings></app-team-stadings>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                The web is using data from <a href="http://ergast.com/mrd/" target="_blank">Ergast API</a> .
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
