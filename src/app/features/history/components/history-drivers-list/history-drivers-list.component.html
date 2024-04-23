@@ -1,1 +1,12 @@
-<p>history-drivers-list works!</p>
+<table class="table table-dark table-hover table-sm">
+    <tbody>
+        <tr *ngFor="let driver of drivers" (click)="openDriver(driver.driverId)">
+            <th scope="row">{{driver.position}}</th>
+            <td>
+                <p class="my-0 text-white">{{driver.Driver.givenName}} <strong>{{driver.Driver.familyName}}</strong></p>
+                <p class="my-0 text-secondary">{{driver.Constructors[0].name}}</p>
+            </td>
+            <td>{{driver.points}} pts</td>
+        </tr>
+    </tbody>
+</table>

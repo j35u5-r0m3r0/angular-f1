@@ -1,1 +1,13 @@
-<p>history-schelude-list works!</p>
+<table class="table table-dark table-hover table-sm">
+    <tbody>
+        <tr *ngFor="let race of races" (click)="openRace(race.raceId)">
+            <th scope="row"><img src=""></th>
+            <td>
+                <p class="my-0 text-danger">Round {{race.round}}</p>
+                <p class="my-0 text-white"><strong>{{race.Circuit.Location.country}}</strong></p>
+                <p class="my-0 text-secondary">{{race.Circuit.circuitName}}</p>
+            </td>
+            <td>{{race.date | date}}</td>
+        </tr>
+    </tbody>
+</table>
