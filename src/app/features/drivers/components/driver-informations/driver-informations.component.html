@@ -1,0 +1,9 @@
+<div class="container-fluid mt-4" *ngIf="info">
+    <h5 class="my-4">Basic Informations</h5>
+    <p class="my-0 text-secondary"><strong>Date of Birth</strong></p>
+    <p class="text-white"><strong>{{info.dateOfBirth}}</strong> ({{getAge(info.dateOfBirth)}} years old)</p>
+    <p class="my-0 text-secondary"><strong>Nationality</strong></p>
+    <p class="text-white"><strong>{{info.nationality}}</strong></p>
+    <p class="my-0 text-secondary"><strong>Permanent number</strong></p>
+    <p class="text-white">{{info.permanentNumber}}</p>
+</div>

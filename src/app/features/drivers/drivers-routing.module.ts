@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     children: [
       { path: '', component: DriversComponent },
-      { path: ':constructorId', component: DriverDetailsComponent }
+      { path: ':driverId', component: DriverDetailsComponent }
     ],
   },
   {

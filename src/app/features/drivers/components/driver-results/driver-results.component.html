@@ -1,0 +1,26 @@
+<div class="container-fluid mt-4" *ngIf="results">
+    <div class="mb-4">
+        <select class="bg-dark text-white" #seasonSelect (change)="filterResults(seasonSelect.value)">
+            <option *ngFor="let season of seasons" [value]="season">Season {{season}}</option>
+        </select>    
+    </div>
+    <div>
+        <table class="table table-dark table-hover table-sm">
+            <tbody>
+                <tr *ngFor="let result of filteredResults; let i = index;">
+                    <th scope="row">
+                        <p class="my-0 text-danger">Round {{result.round}}</p>
+                        <p class="my-0"><strong>{{result.Circuit.Location.locality}}</strong></p>
+                    </th>
+                    <td>
+                        <p class="my-0 text-white">{{result.Results[0].Constructor.name}}</p>
+                    </td>
+                    <td>
+                        <p class="my-0"><span class="text-secondary">Position:</span> {{result.Results[0].position}}</p> 
+                        <p class="my-0">{{result.Results[0].points}} <span class="text-secondary">pts</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>    
+    </div>
+</div>

@@ -33,4 +33,24 @@ export class ApiService {
     return this.http.get(`${this.apiUrl}/current${this.responseFormat}`);
   }
 
+  // GET driver info
+  getDriverInfo(driverId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/drivers/${driverId}${this.responseFormat}`);
+  }
+
+  // GET driver results
+  getDriverResults(season: string, driverId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/drivers/${driverId}/results${this.responseFormat}?limit=200`);
+  }
+
+  // GET seasons
+  getSeassons(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/seasons${this.responseFormat}`);
+  }
+
+  //GET countries
+  getCountries(): Observable<any> {
+    return this.http.get('src/assets/countries.json');
+  }
+
 }
