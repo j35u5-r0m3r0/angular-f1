@@ -25,7 +25,17 @@ export class ApiService {
 
   // GET team info
   getTeamInfo(constructorId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/constructor/${constructorId}${this.responseFormat}`);
+    return this.http.get(`${this.apiUrl}/constructors/${constructorId}${this.responseFormat}`);
+  }
+
+  // GET team results
+  getTeamResults(season: string, constructorId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${season}/constructors/${constructorId}/results${this.responseFormat}`);
+  }
+
+  // GET team seasons
+  getTeamSeasons(constructorId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/constructors/${constructorId}/seasons${this.responseFormat}`);
   }
 
   // GET current races
@@ -40,7 +50,12 @@ export class ApiService {
 
   // GET driver results
   getDriverResults(season: string, driverId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/drivers/${driverId}/results${this.responseFormat}?limit=200`);
+    return this.http.get(`${this.apiUrl}/drivers/${driverId}/results${this.responseFormat}`);
+  }
+
+  // GET driver seasons
+  gerDriverSeasons(driverId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/drivers/${driverId}/seasons${this.responseFormat}`);
   }
 
   // GET seasons

@@ -1,0 +1,27 @@
+<div class="container-fluid mt-4" *ngIf="races">
+    <div class="mb-4">
+        <select class="bg-dark text-white" #seasonSelect (change)="getTeamRaces(seasonSelect.value)">
+            <option *ngFor="let season of seasons" [value]="season">Season {{season}}</option>
+        </select>    
+    </div>
+    <div>
+
+        <div class="row" *ngFor="let race of races">
+            <p class="my-0 text-danger">Round {{race.round}}</p>
+            <p class="my-0"><strong>{{race.Circuit.Location.locality}}</strong></p>
+            <div class="row" *ngFor="let result of race.Results">
+                <div class="col-6">
+                    <p>{{result.Driver.givenName}} {{result.Driver.familyName}}</p>
+                </div>
+                <div class="col-6">
+                    <p class="my-0"><span class="text-secondary">Position:</span> {{result.position}}</p> 
+                    <p class="my-0">{{result.points}} <span class="text-secondary">pts</span></p>
+                </div>
+            </div>
+        </div>
+
+
+ 
+    </div>
+</div>
+

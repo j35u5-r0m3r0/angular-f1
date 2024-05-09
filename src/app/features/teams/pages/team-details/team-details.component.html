@@ -1,1 +1,27 @@
-<p>team-details works!</p>
+<div class="container px-lg-5">
+    <div class="bg-dark">
+        <button class="btn btn-dark my-2" routerLink="./drivers"><i class="bi bi-arrow-left-square"></i></button>
+        <div class="container-fluid" *ngIf="team">
+            <p class="my-0"><strong>{{team.name}}</strong></p>    
+            <p class="my-0">nombre piloto1 | nombre piloto2</p>
+        </div>
+    </div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="informations-tab" data-bs-toggle="tab" data-bs-target="#informations" type="button" role="tab" aria-controls="informations" aria-selected="true">INFORMATIONS</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="results-tab" data-bs-toggle="tab" data-bs-target="#results" type="button" role="tab" aria-controls="results" aria-selected="false">RESULTS</button>
+          </li>
+      </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="informations" role="tabpanel" aria-labelledby="informations-tab">
+            <app-team-informations [info]="team"></app-team-informations>
+        </div>
+        <div class="tab-pane" id="results" role="tabpanel" aria-labelledby="results-tab">
+            <app-team-results [constructorId]="constructorId" [seasons]="seasons"></app-team-results>
+        </div>
+    </div>
+</div>
