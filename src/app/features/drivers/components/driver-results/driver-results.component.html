@@ -1,13 +1,13 @@
 <div class="container-fluid mt-4" *ngIf="results">
     <div class="mb-4">
-        <select class="bg-dark text-white" #seasonSelect (change)="filterResults(seasonSelect.value)">
+        <select class="bg-dark text-white" #seasonSelect (change)="getDriverRaces(seasonSelect.value)">
             <option *ngFor="let season of seasons" [value]="season">Season {{season}}</option>
         </select>    
     </div>
     <div>
         <table class="table table-dark table-hover table-sm">
             <tbody>
-                <tr *ngFor="let result of filteredResults; let i = index;">
+                <tr *ngFor="let result of results; let i = index;">
                     <th scope="row">
                         <p class="my-0 text-danger">Round {{result.round}}</p>
                         <p class="my-0"><strong>{{result.Circuit.Location.locality}}</strong></p>

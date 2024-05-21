@@ -50,11 +50,11 @@ export class ApiService {
 
   // GET driver results
   getDriverResults(season: string, driverId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/drivers/${driverId}/results${this.responseFormat}`);
+    return this.http.get(`${this.apiUrl}/${season}/drivers/${driverId}/results${this.responseFormat}`);
   }
 
   // GET driver seasons
-  gerDriverSeasons(driverId: string): Observable<any> {
+  getDriverSeasons(driverId: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/drivers/${driverId}/seasons${this.responseFormat}`);
   }
 

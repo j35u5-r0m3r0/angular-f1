@@ -11,9 +11,9 @@ import { Race } from '../../interfaces/driverResultsResp.interface';
 })
 export class DriverDetailsComponent implements OnInit {
 
+  driverId: string = "";
   driver!: Driver;
-  races: Race[] = [];
-  season: string = "current";
+  seasons: string[] = [];
 
   constructor(
     private apiService: ApiService
@@ -24,9 +24,9 @@ export class DriverDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);
 
   ngOnInit(): void {     
-    const id = String(this.route.snapshot.paramMap.get('driverId'));
-    this.getDriverInfo(id);
-    this.getDriverResults(this.season,id);
+    this.driverId = String(this.route.snapshot.paramMap.get('driverId'));
+    this.getDriverInfo(this.driverId);
+    this.getDriverSeasons(this.driverId);
   }
 
   getDriverInfo(id: string): void {
@@ -36,10 +36,10 @@ export class DriverDetailsComponent implements OnInit {
     });
   }
 
-  getDriverResults(seasson:string, id:string): void {
-    this.apiService.getDriverResults(seasson, id).subscribe((resp:any) => {
-      this.races = resp.MRData.RaceTable.Races;
-      console.log('results',resp);
+  getDriverSeasons(id:string): void {
+    this.apiService.getDriverSeasons(id).subscribe((resp:any) => {
+      const valoresSeason = resp.MRData.SeasonTable.Seasons.map((s: { season: any; }) => s.season);
+      this.seasons = valoresSeason.sort((a: number,b: number) => b - a);
     });
   }
 }

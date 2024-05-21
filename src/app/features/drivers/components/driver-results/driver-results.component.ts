@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-driver-results',
@@ -7,35 +8,31 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DriverResultsComponent {
 
+
+  @Input()
+  driverId!: string;
+  @Input()
+  seasons!: string[];
+
   @Input()
   results!: any[];
 
-  filteredResults!: any[];
-  seasons!: string[];
 
-  constructor() {}
+  constructor(
+    private apiService: ApiService
+  ) { }
 
   ngOnChanges(): void {
-    //this.filteredResults = this.results;
-    this.seasons = this.getSeasons();
-    this.filterResults(this.seasons[0]);
-  }
-
-
-  filterResults(text: string) {
-    if(!text) {
-      this.filteredResults = this.results;
-      return;
+    if (this.seasons.length>0) {
+      this.getDriverRaces(this.seasons[0]);
     }
-    this.filteredResults = this.results.filter(
-      result => result?.season.toLowerCase().includes(text.toLowerCase())
-    );
   }
 
-  getSeasons(): string[] {
-    const valoresSeason = this.results.map(result => result.season)
-    const seasons = valoresSeason.sort((a,b) => b - a);
-    return [...new Set(seasons)];
+  getDriverRaces(season: string) {
+    this.apiService.getDriverResults(season, this.driverId).subscribe((resp:any) =>{
+      this.results = resp.MRData.RaceTable.Races;
+      console.log('results',this.results);
+    });
   }
 
 }
